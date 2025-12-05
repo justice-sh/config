@@ -22,7 +22,7 @@ Just copy, paste, and run—it's that simple!
     // env.schema.ts (Minimal setup)
     export function envSchema() {
       return z.object({
-        PORT: z.number(), // Automatically ensures PORT is a number
+        PORT: z.preprocess((val) => Number(val), z.number().int().positive()), // Automatically ensures PORT is a number
         DB_URL: z.string().nonempty(),
       });
     }
@@ -60,6 +60,8 @@ NODE_ENV=development
 ```
 
 This mechanism allows you to effortlessly toggle between development, testing, and production configurations.
+
+However, if you prefer to have all your env variables in one file, you can too, and it will work just fine.
 
 4.  ### 🧱 Direct Usage (Outside of DI)
 
