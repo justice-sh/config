@@ -120,7 +120,7 @@ console.log('Database URL:', databaseUrl);
 
 ## 👤 Author
 
-- **Justice** - [Justice's GitHub Profile](https://github.com/justice-sh)
+- **Justice Nkweke** - [Justice's GitHub Profile](https://github.com/justice-sh)
 
 ---
 
