@@ -126,4 +126,4 @@ console.log('Database URL:', databaseUrl);
 
 ## 📄 License
 
-MIT
+[MIT](./LICENSE)
