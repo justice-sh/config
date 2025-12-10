@@ -1,3 +1,3 @@
 import { EnvData } from './env.type';
 
-export type ConfigData = EnvData;
+export type ConfigData = Readonly<EnvData>;

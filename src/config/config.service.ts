@@ -3,7 +3,6 @@ import * as dotenv from "dotenv";
 import { EnvData } from "./types/env.type";
 import { envSchema } from "./schema/env.schema";
 import { ConfigData } from "./types/config.type";
-import { ExactPathForValue } from "./types/util";
 import { fromZodError } from "zod-validation-error";
 
 dotenv.config();
@@ -19,7 +18,7 @@ export class ConfigService {
     loadedEnv = this.loadAndValidate();
   }
 
-  get<R, K extends ExactPathForValue<ConfigData, R>>(selector: (env: ConfigData) => R): R {
+  get<R>(selector: (env: ConfigData) => R): R {
     const data = this.transform();
     return selector(data);
   }
@@ -27,7 +26,7 @@ export class ConfigService {
   private transform(): ConfigData {
     if (transformedData) return transformedData;
 
-    transformedData = { ...loadedEnv };
+    transformedData = Object.freeze({ ...loadedEnv });
 
     return transformedData;
   }
