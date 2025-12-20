@@ -48,3 +48,8 @@ export class ConfigService {
     return result.data;
   }
 }
+
+/**
+ * Config data for application-wide usage outside of NestJS DI context.
+ */
+export const AppConfig = new ConfigService().get((env) => env);
